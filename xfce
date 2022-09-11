@@ -9,3 +9,35 @@ sudo pacman -S xfce4-pulseaudio-plugin pavucontrol xfce4-screenshooter
 sudo pacman -S arc-solid-gtk-theme papirus-icon-theme
 
 sudo pacman -S firefox geany
+
+sudo pacman -S git nvidia-settings neofetch fish gvfs reflector
+
+git clone https://github.com/realname69/arch.git
+
+sudo nvidia-xconfig
+sudo nano /etc/X11/xorg.conf
+    Option         "CustomEDID" "DVI-D-0:/home/asd/box/edid75.bin"
+
+sudo nano /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
+Section "InputClass"
+	Identifier "My Mouse"
+	Driver "libinput"
+	MatchIsPointer "yes"
+	Option "AccelProfile" "flat"
+	Option "AccelSpeed" "0"
+EndSection
+
+chsh -s /usr/bin/fish
+
+sudo nano /etc/xdg/reflector/reflector.conf
+
+sudo nano /etc/lightdm/lightdm-gtk-greeter.conf
+theme-name=Arc-Dark-solid
+hide-user-image=true
+
+git clone https://aur.archlinux.org/paru.git
+
+paru -S viewnior vlc qbittorrent xarchiver unrar unzip zip thunar-archive-plugin
+
+paru -S ananicy stacer
+sudo systemctl enable ananicy
