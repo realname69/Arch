@@ -1,0 +1,11 @@
+sudo pacman -S linux-zen linux-zen-headers nvidia-dkms nano
+sudo nano /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+sudo pacman -S lightdm-gtk-greeter xfce4
+sudo systemctl enable lightdm
+
+sudo pacman -S xfce4-pulseaudio-plugin pavucontrol xfce4-screenshooter
+sudo pacman -S arc-solid-gtk-theme papirus-icon-theme
+
+sudo pacman -S firefox geany
