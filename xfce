@@ -39,5 +39,8 @@ git clone https://aur.archlinux.org/paru.git
 
 paru -S viewnior vlc qbittorrent xarchiver unrar unzip zip thunar-archive-plugin
 
-paru -S ananicy stacer
+paru -S ananicy auto-cpufreq stacer
 sudo systemctl enable ananicy
+sudo systemctl enable auto-cpufreq
+
+paru -S steam gamemode lib32-gamemode vibrantlinux
