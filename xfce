@@ -1,24 +1,35 @@
+## KERNEL & DRIVERS
+
 sudo pacman -S linux-zen linux-zen-headers nvidia-dkms nano
 sudo nano /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+>GRUB_DEFAULT=saved
+>GRUB_TIMEOUT=0
+>GRUB_SAVEDEFAULT=true
+>GRUB_DISABLE_SUBMENU=y
+grub-mkconfig -o /boot/grub/grub.cfg
 
-sudo pacman -S lightdm-gtk-greeter xfce4
+## DM & DE
+
+sudo pacman -S lightdm-slick-greeter xfce4
+(without xfce4-power-manager xfwm4-themes)
+sudo pacman -S xfce4-pulseaudio-plugin pavucontrol xfce4-screenshooter thunar-archive-plugin
+sudo pacman -S arc-solid-gtk-theme papirus-icon-theme
 sudo systemctl enable lightdm
 
-sudo pacman -S xfce4-pulseaudio-plugin pavucontrol xfce4-screenshooter
-sudo pacman -S arc-solid-gtk-theme papirus-icon-theme phinger-cursors
+## NEED
 
-sudo pacman -S firefox geany
-
-sudo pacman -S git nvidia-settings neofetch fish gvfs reflector
-
+sudo pacman -S git geany
 git clone https://github.com/realname69/arch.git
+
+## RESTART & CUSTOMIZE
+
+## 75HZ & ACCELERATION
 
 sudo nvidia-xconfig
 sudo nano /etc/X11/xorg.conf
-    Option         "CustomEDID" "DVI-D-0:/home/asd/box/edid75.bin"
-
+>    Option         "CustomEDID" "DVI-D-0:/home/asd/box/edid75.bin"
 sudo nano /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
+>(
 Section "InputClass"
 	Identifier "My Mouse"
 	Driver "libinput"
@@ -26,22 +37,24 @@ Section "InputClass"
 	Option "AccelProfile" "flat"
 	Option "AccelSpeed" "0"
 EndSection
+)
+
+## YAY & TOOL
+
+git clone https://aur.archlinux.org/yay.git
+(close terminal)
+yay -S nvidia-settings fish gvfs neofetch reflector
+
+## CUSTOMIZE
 
 chsh -s /usr/bin/fish
-
 sudo nano /etc/xdg/reflector/reflector.conf
+>--country ,Russia
+>--latest 10
+>--sort rate
 
-sudo nano /etc/lightdm/lightdm-gtk-greeter.conf
-theme-name=Arc-Dark-solid
-hide-user-image=true
-cursor-theme-name=phinger-cursors
+## PROGRAMS
 
-git clone https://aur.archlinux.org/paru.git
-
-paru -S viewnior vlc qbittorrent xarchiver unrar unzip zip thunar-archive-plugin
-
-paru -S ananicy auto-cpufreq stacer
-sudo systemctl enable ananicy
-sudo systemctl enable auto-cpufreq
-
-paru -S steam gamemode lib32-gamemode vibrantlinux
+yay -S firefox ristretto vlc qbittorrent file-roller
+yay -S ananicy auto-cpufreq stacer
+yay -S steam gamemode lib32-gamemode vibrantlinux
