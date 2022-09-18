@@ -12,7 +12,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 sudo pacman -S lightdm-slick-greeter xfce4
 (without xfce4-power-manager xfwm4-themes)
-sudo pacman -S xfce4-pulseaudio-plugin pavucontrol xfce4-screenshooter thunar-archive-plugin
+sudo pacman -S xfce4-pulseaudio-plugin pavucontrol xfce4-xkb-plugin xfce4-screenshooter thunar-archive-plugin
 sudo pacman -S arc-solid-gtk-theme papirus-icon-theme
 sudo systemctl enable lightdm
 sudo nano /etc/lightdm/lightdm.conf
