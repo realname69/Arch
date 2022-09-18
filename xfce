@@ -6,7 +6,7 @@ sudo nano /etc/default/grub
 >GRUB_TIMEOUT=0
 >GRUB_SAVEDEFAULT=true
 >GRUB_DISABLE_SUBMENU=y
-grub-mkconfig -o /boot/grub/grub.cfg
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 ## DM & DE
 
@@ -20,6 +20,7 @@ sudo systemctl enable lightdm
 
 sudo pacman -S git geany
 git clone https://github.com/realname69/arch.git
+cp -r /home/asd/arch/box /home/asd
 
 ## RESTART & CUSTOMIZE
 
