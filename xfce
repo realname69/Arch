@@ -15,6 +15,8 @@ sudo pacman -S lightdm-slick-greeter xfce4
 sudo pacman -S xfce4-pulseaudio-plugin pavucontrol xfce4-screenshooter thunar-archive-plugin
 sudo pacman -S arc-solid-gtk-theme papirus-icon-theme
 sudo systemctl enable lightdm
+sudo nano /etc/lightdm/lightdm.conf
+>greeter-session=lightdm-slick-greeter
 
 ## NEED
 
@@ -23,6 +25,14 @@ git clone https://github.com/realname69/arch.git
 cp -r /home/asd/arch/box /home/asd
 
 ## RESTART & CUSTOMIZE
+
+sudo cp /home/asd/box/1.jpg /usr/share/backgrounds/
+sudo nano /etc/lightdm/slick-greeter.conf
+>(
+[Greeter]
+theme-name=Arc-Dark-solid
+background=/usr/share/backgrounds/1.jpg
+)
 
 ## 75HZ & ACCELERATION
 
